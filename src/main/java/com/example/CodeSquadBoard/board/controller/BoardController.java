@@ -32,12 +32,12 @@ public class BoardController {
 	public ResponseEntity<Long> saveBoard(
 		@RequestBody BoardRequestDto dto) {
 		log.info(dto.getTitle()," ",dto.getContent()," ",dto.getUserId());
-		//try {
+		try {
 		Long id = boardService.save(dto);
 			return ResponseEntity.ok(id);
-		//} catch (Exception e) {
-		//	throw new IllegalArgumentException("게시글 저장 오류");
-		//}
+		} catch (Exception e) {
+			throw new IllegalArgumentException("게시글 저장 오류");
+		}
 	}
 
 
